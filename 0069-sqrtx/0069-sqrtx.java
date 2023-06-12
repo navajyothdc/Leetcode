@@ -14,10 +14,10 @@ class Solution {
             if(x > mid*mid && x <(mid+1)*(mid+1) ){
                 return (int)mid;
             }
-            if(mid*mid < x){
-                low = mid+1;
-            }else{
+            if(mid*mid < 0 || mid*mid > x){
                 high = mid-1;
+            }else{
+                low = mid+1;
             }
         }
         return (int)mid;
