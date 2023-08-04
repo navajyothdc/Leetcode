@@ -22,8 +22,12 @@ class Solution {
                 if(prev != null){ 
                     prev.next = next;
                     curr = prev;
-                }else if(next == null || temp.val != next.val){
-                    head = next;
+                }else{ 
+                    if(next == null || temp.val != next.val){
+                        head = next;
+                    } else {
+                        head = null;
+                    }
                 }
             } else{
                 prev = curr;
