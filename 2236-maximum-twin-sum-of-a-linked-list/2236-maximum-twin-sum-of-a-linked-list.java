@@ -12,18 +12,23 @@ class Solution {
     public int pairSum(ListNode head) {
         Stack<ListNode> stack = new Stack<>();
         ListNode curr = head;
+        ListNode fast = head;
+        ListNode next = null;
+        ListNode prev = null;
         int count = 0;
         int twinSum = 0;
-        while(curr!=null){
-            stack.push(curr);
-            curr = curr.next;
-        }
-        curr=head;
-        int size = stack.size();
-        while(count<size){
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
             count++;
-            twinSum = Math.max(twinSum, curr.val + stack.pop().val);
-            curr = curr.next;
+        }
+        while(prev!=null){
+            twinSum = Math.max(twinSum, prev.val+next.val);
+            next = next.next;
+            prev = prev.next;
         }
         return twinSum;
     }
