@@ -1,38 +1,18 @@
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
 class Solution {
+    List<String> list=new ArrayList<>();
     public List<String> binaryTreePaths(TreeNode root) {
-        List<String> result = new ArrayList<>();
-        TreeNode mainRoot = root;
-        binaryTreePathsMain(root, mainRoot, result, "");
-        return result;
+        binaryTreePaths(root,"");
+        return list;
     }
-    public void binaryTreePathsMain(TreeNode root, TreeNode mainRoot, List<String> result, String s) {
-        if(root == null) return;
-        if(root.left == null && root.right == null){
-             s = (root == mainRoot)? Integer.toString(root.val) : s + "->" + root.val;
-            result.add(s);
-            if(result.contains(s)){
-                return;
-            } else{
-                binaryTreePathsMain(mainRoot, mainRoot, result, s);
-            }
-        }
-        s = (root == mainRoot)? Integer.toString(root.val) : s + "->" + root.val;
-        binaryTreePathsMain(root.left, mainRoot, result, s);
-        binaryTreePathsMain(root.right, mainRoot, result, s);
+    public void binaryTreePaths(TreeNode root,String str) {
+        if(root==null)return;
+
+        str+=root.val+"->";
+        System.out.println(str.substring(0,str.length()-2));
+        binaryTreePaths(root.left,str);
+        binaryTreePaths(root.right,str);
+
+        if(root.left==null && root.right==null) list.add(str.substring(0,str.length()-2));
+        return;
     }
 }
