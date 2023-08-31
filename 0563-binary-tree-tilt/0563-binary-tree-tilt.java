@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-   static int ans;
+    static int ans;
     public int findTilt(TreeNode root) {
         ans=0;
         task(root);
