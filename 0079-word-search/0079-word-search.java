@@ -1,10 +1,8 @@
 class Solution {
     boolean val = false;
-    char[][] test;
     public boolean exist(char[][] board, String word) {
         int row = board.length;
         int col = board[0].length;
-        test = board;
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 if(board[i][j] == word.charAt(0)){
