@@ -11,10 +11,9 @@ class Solution {
         }
         for(int i= 0; i<t.length(); i++){
             if(map.containsKey(t.charAt(i))){
-                if(map.get(t.charAt(i)) == 1){
+                map.put(t.charAt(i), map.get(t.charAt(i)) - 1);
+                if(map.get(t.charAt(i)) == 0){
                     map.remove(t.charAt(i));
-                }else{
-                    map.put(t.charAt(i), map.get(t.charAt(i)) - 1);
                 }
             }else{
                 return false;
