@@ -15,6 +15,7 @@ class Solution {
                 }
                 ans = Math.max(ans, sequenceCount);
             }
+            if(ans > nums.length/2) break;
         }
         return ans;
     }
