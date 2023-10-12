@@ -25,13 +25,11 @@ class Solution {
             current = current.next;
             count++;
         }
-        // System.out.println(prev.val);
+        // System.out.println(current.val);
         if (prev == null) {
-            // System.out.println("here");
             head = head.next;
             return head;
-        }
-        else {
+        } else {
             prev.next = prev.next.next;
             return head;
         }
